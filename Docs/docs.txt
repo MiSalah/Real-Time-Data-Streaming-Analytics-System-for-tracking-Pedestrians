@@ -1,1 +1,5 @@
 folder that will contain documentation (articles, books ...)
+
+
+link : https://www.researchgate.net/publication/332699350_Implementation_of_a_Large-Scale_Platform_for_Cyber-Physical_System_Real-Time_Monitoring/figures?lo=1
+
