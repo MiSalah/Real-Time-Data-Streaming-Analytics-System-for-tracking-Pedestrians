@@ -13,3 +13,5 @@ Traccar Client is an app that allows you to use your mobile device as a GPS trac
 By default application is configured to use free Traccar service (address - demo.traccar.org, port - 5055). To see your device on map register on http://demo.traccar.org/ and add your device with identifier.
 
 Traccar (Server) is a free open source server that supports more than 100 different protocols and GPS tracking devices. You can use this application with your own hosted instance of Traccar. For more information visit https://www.traccar.org/.
+
+## The Data Server Recipient 
