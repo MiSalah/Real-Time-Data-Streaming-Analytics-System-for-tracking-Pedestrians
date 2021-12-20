@@ -1,5 +1,10 @@
 # Real Time Data Streaming Analytics System for tracking pedestrians
 
+## The Project GOAL 
+
+![Screenshot (488)](https://user-images.githubusercontent.com/74468388/146798688-c5035625-2ee2-4e0b-bece-72cf5d27cdd7.png)
+
+
 ## Data source
 
 - **The application name :** traccar client
