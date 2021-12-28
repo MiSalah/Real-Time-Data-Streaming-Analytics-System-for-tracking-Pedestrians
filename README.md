@@ -34,4 +34,11 @@ The traccar server is using h2 in memory database by default and we have to conf
 
 ![Screenshot (481)](https://user-images.githubusercontent.com/74468388/146070938-1a731c94-5de5-4a75-bd9c-5a4c4745b9b4.png)
 
+<<<<<<< HEAD
+## Traccar and mongoDB nosql database connection
+
+
+we used python sdk to connect the traccar server and the mongodb using the websocket
+=======
 ## Traccar and MongoDB NoSQL Database Connection
+>>>>>>> 379bacd30f1e06abf60244bbb4208a66a8654065
