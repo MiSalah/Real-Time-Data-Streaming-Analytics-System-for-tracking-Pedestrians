@@ -1,1 +1,1 @@
-folder that will contain the source code of our project
+folder that contains the source code of programs used in this project

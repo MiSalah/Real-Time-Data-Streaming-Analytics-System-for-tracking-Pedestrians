@@ -1,5 +1,13 @@
 # Real Time Data Streaming Analytics System for tracking pedestrians
 
+## The Project GOAL 
+
+![Screenshot (488)](https://user-images.githubusercontent.com/74468388/146798688-c5035625-2ee2-4e0b-bece-72cf5d27cdd7.png)
+
+## The Main Project Functional Architecture 
+
+![Screenshot (487)](https://user-images.githubusercontent.com/74468388/146799004-0b42f1e7-60c3-4b65-a16c-37e7d765b2b0.png)
+
 ## Data source
 
 - **The application name :** traccar client
@@ -27,3 +35,6 @@ The traccar server is using h2 in memory database by default and we have to conf
 ![Screenshot (481)](https://user-images.githubusercontent.com/74468388/146070938-1a731c94-5de5-4a75-bd9c-5a4c4745b9b4.png)
 
 ## Traccar and mongoDB nosql database connection
+
+We used python sdk to connect the traccar server and the mongodb using the websocket.
+
