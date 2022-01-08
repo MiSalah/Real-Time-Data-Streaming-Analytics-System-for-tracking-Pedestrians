@@ -57,5 +57,5 @@ def upload_to_aws(local_file, bucket, s3_file):
     except NoCredentialsError:
         print("Credentials not available")
         return False
-uploaded = upload_to_aws('positions.csv', 'projectofkarim', 'positions.csv')
-uploaded = upload_to_aws('devices.csv', 'projectofkarim', 'devices.csv')
+uploaded = upload_to_aws('positions.csv', 'projectbigdata2022', 'positions.csv')
+uploaded = upload_to_aws('devices.csv', 'projectbigdata2022', 'devices.csv')
