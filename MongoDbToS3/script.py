@@ -3,7 +3,7 @@ import csv
 import pandas as pd
 import boto3
 from botocore.exceptions import NoCredentialsError
-client = MongoClient ("mongodb+srv://XXXXXX:XXXXXXXX@cluster0.kx5fr.mongodb.net/Timestamp")
+client = MongoClient ("mongodb+srv://XXXXXX:XXXXXXX@cluster0.kx5fr.mongodb.net/Timestamp")
 db=client["Timestamp"]
 collection_currency = db["positions"]
 collection_dev = db["devices"]
@@ -41,8 +41,8 @@ with open('devices.csv', 'w', newline='') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(devices)
-ACCESS_KEY = '&YOUR_ACCESS_KEY'
-SECRET_KEY = '&YOUR_SECRET_KEY'
+ACCESS_KEY = 'XXXXXXXXXXXXX'
+SECRET_KEY = 'XXXXXXXXXXXXXX'
 def upload_to_aws(local_file, bucket, s3_file):
     s3 = boto3.client('s3', aws_access_key_id=ACCESS_KEY,
                       aws_secret_access_key=SECRET_KEY)
