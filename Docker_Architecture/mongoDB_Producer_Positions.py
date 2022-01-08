@@ -1,7 +1,7 @@
 from kafka import KafkaProducer
 import json
 import time as t
-#from data import get_users
+
 from bson.json_util import dumps, loads
 from MongoDB_data import get_positions
 
