@@ -9,6 +9,12 @@ services:
       - "2181:2181"
     environment:
       ZOOKEEPER_SERVER_ID: 1
+    volumes:
+      - kafka_zookeeper:/opt/zookeeper-3.4.13/data
+    networks:
+      traccar:
+        ipv4_address: 172.25.0.10
+
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
@@ -16,16 +22,74 @@ services:
     restart: always
     ports:
       - "9092:9092"
+      - "8080:8080"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 192.168.1.110
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.3.1.jar=8080:/prometheus/kafka-0-8-2.yml 
+    volumes:
+      - ./kafka/prometheus:/prometheus
+      - kafka_kafka:/opt/kafka/logs
+    networks:
+      traccar:
+        ipv4_address: 172.25.0.11
+    depends_on:
+      - "zookeeper"
+  
   kafka_manager:
     image: hlebalbau/kafka-manager:stable
     container_name: kakfa-manager
     restart: always
     ports:
       - "9000:9000"
+    networks:
+      traccar:
+        ipv4_address: 172.25.0.12
     environment:
       ZK_HOSTS: "zookeeper:2181"
       APPLICATION_SECRET: "random-secret"
     command: -Dpidfile.path=/dev/null
+
+  prometheus:
+    image: prom/prometheus:v2.8.1
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/flink.rules.yml:/etc/prometheus/flink.rules.yml
+    depends_on:
+      - "zookeeper"
+      - "kafka"
+    networks:
+      traccar:
+        ipv4_address: 172.25.0.13
+
+  grafana:
+    image: grafana/grafana:6.1.1
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=password
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    depends_on:
+      - "prometheus"
+    networks:
+      traccar:
+        ipv4_address: 172.25.0.14
+
+networks:
+  traccar:
+    name: traccar
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
+
+volumes:
+  kafka_zookeeper:
+  kafka_kafka:
