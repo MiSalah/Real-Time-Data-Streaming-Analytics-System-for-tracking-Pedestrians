@@ -33,4 +33,3 @@ if __name__ == '__main__':
         new_rank=count
         print(new_rank)
         t.sleep(10)
-

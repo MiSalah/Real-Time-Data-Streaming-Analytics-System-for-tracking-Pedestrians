@@ -22,6 +22,8 @@ def get_devices():
     devices = list(devices_collection.find({}))
     return devices, devices_collection.count_documents({}) 
 
+
+
 """ for i in range(len(positions)-1,len(positions)):
     print(positions[i])
 
