@@ -24,7 +24,7 @@ services:
       - "9092:9092"
       - "8080:8080"
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: 192.168.1.110
+      KAFKA_ADVERTISED_HOST_NAME: 188.166.100.41
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.3.1.jar=8080:/prometheus/kafka-0-8-2.yml 
     volumes:
@@ -105,7 +105,7 @@ services:
         ipv4_address: 172.25.0.16
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.1
     container_name: elasticsearch
     restart: always
     environment:
@@ -150,7 +150,7 @@ networks:
       driver: default
       config:
         - subnet: 172.25.0.0/16
-     #    gateway: 172.25.0.1
+      #    gateway: 172.25.0.1
 
 volumes:
   kafka_zookeeper:
