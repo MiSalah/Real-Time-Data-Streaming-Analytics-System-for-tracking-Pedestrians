@@ -8,6 +8,12 @@
 
 ![Screenshot (487)](https://user-images.githubusercontent.com/74468388/146799004-0b42f1e7-60c3-4b65-a16c-37e7d765b2b0.png)
 
+## The Technical Project Architecture
+
+
+![I-track - Technical architecture](https://user-images.githubusercontent.com/74468388/149933820-f1df134b-f7d7-473b-98a1-917e1c0d247c.png)
+
+
 ## Data source
 
 - **The application name :** traccar client
@@ -38,3 +44,4 @@ The traccar server is using h2 in memory database by default and we have to conf
 
 We used python sdk to connect the traccar server and the mongodb using the websocket.
 
+## The Technical Project Architecture
