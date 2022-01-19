@@ -21,10 +21,6 @@ First of all, we chosed traccar server as data source generator. We installed on
 <p>
 After generating the data, two main phases are coming in the picture, batch processing and stream processing. For the batch phase we used S3 as a cloud simple storage datalake service for advanced analytics and ML algorithms purpose using a python program that stores the data generated from traccar Server as excel file every 24 hours and store it in S3, then we connected S3 with the sageMaker service to manipulate this for and build an adequate models.
 </p>  
-
-<p>
-Let's move now the stream processing phase, Kafka was used as a data ingestion tool between mongoDB and spark streaming, so here mongoDB were acting as a producer and spark as consumer that subscribes to our kafka topic. 
-</p>   
   
  <p>
 Let's move now the stream processing phase, Kafka was used as a data ingestion tool between mongoDB and spark streaming, so here mongoDB were acting as a producer and spark as consumer that subscribes to our kafka topic. spark streaming holds the data and handle it so to be convenient for our needs.
@@ -32,6 +28,10 @@ Let's move now the stream processing phase, Kafka was used as a data ingestion t
 
  <p>
 Another important phase was important, which is the monitoring phase. so to take advantage about the process of assessing the performance of our cluster entities either as individual nodes or as a collection. for our case, the prometheus solution has come to the picture to handle our cluster status. Prometheus collects and stores its metrics as time series data in one place, this advantage will make us easily supervise our cluster, and based on these metrics we can perform a real-time monitoring of how our cluster is responding over time with the help of grafana that integrate perfectly with prometheus and provide a user friendly and human readable dashboard.   
+</p> 
+
+ <p>
+The last phase was the real time visualisation of our data flow. we chose to work with ELK stack in this phase, ELK stands for Elasticsearch, logstash and kibana. Logstash played the role of the middle man between the Kafka handled data topic and elasticsearch, the connection between this two components is easy, you just have to write pipeline.conf script that will build the pipeline between kafka and elasticsearch and once elasticsearch starts consuming the last preprocessed data kibana will take and present it the best way possible using its visualisation capabilities.  
 </p> 
 
 ## Data source
