@@ -13,9 +13,14 @@
 
 ![I-track - Technical architecture](https://user-images.githubusercontent.com/74468388/149933820-f1df134b-f7d7-473b-98a1-917e1c0d247c.png)
 
-
-
+<details><summary>Project Description</summary>
+<p>
 First of all, we chosed traccar server as data source generator. We installed on our users' phones the traccar client application to establish a connection with traccar server, the data generated from the application will be sent to traccar server and mongoDB will act as a database for traccar server. the connection between these two components was established with the help of a websocket API using a python program for this purpose. 
+</p>
+  
+
+</details>
+
 
 ## Data source
 
