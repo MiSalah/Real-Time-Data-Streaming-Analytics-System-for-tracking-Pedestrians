@@ -13,7 +13,7 @@
 
 ![I-track - Technical architecture](https://user-images.githubusercontent.com/74468388/149933820-f1df134b-f7d7-473b-98a1-917e1c0d247c.png)
 
-<details><summary>Project Description</summary>
+#### Project technical architecture Description 
 <p>
 First of all, we chosed traccar server as data source generator. We installed on our users' phones the traccar client application to establish a connection with traccar server, the data generated from the application will be sent to traccar server and mongoDB will act as a database for traccar server. the connection between these two components was established with the help of a websocket API using a python program for this purpose. 
 </p>
@@ -25,8 +25,14 @@ After generating the data, two main phases are coming in the picture, batch proc
 <p>
 Let's move now the stream processing phase, Kafka was used as a data ingestion tool between mongoDB and spark streaming, so here mongoDB were acting as a producer and spark as consumer that subscribes to our kafka topic. 
 </p>   
-</details>
+  
+ <p>
+Let's move now the stream processing phase, Kafka was used as a data ingestion tool between mongoDB and spark streaming, so here mongoDB were acting as a producer and spark as consumer that subscribes to our kafka topic. spark streaming holds the data and handle it so to be convenient for our needs.
+</p>   
 
+ <p>
+Another important phase was important, which is the monitoring phase. so to take advantage about the process of assessing the performance of our cluster entities either as individual nodes or as a collection. for our case, the prometheus solution has come to the picture to handle our cluster status. Prometheus collects and stores its metrics as time series data in one place, this advantage will make us easily supervise our cluster, and based on these metrics we can perform a real-time monitoring of how our cluster is responding over time with the help of grafana that integrate perfectly with prometheus and provide a user friendly and human readable dashboard.   
+</p> 
 
 ## Data source
 
