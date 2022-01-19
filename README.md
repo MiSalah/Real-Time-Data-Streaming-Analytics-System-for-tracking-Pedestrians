@@ -31,8 +31,16 @@ Another important phase was important, which is the monitoring phase. so to take
 </p> 
 
  <p>
-The last phase was the real time visualisation of our data flow. we chose to work with ELK stack in this phase, ELK stands for Elasticsearch, logstash and kibana. Logstash played the role of the middle man between the Kafka handled data topic and elasticsearch, the connection between this two components is easy, you just have to write pipeline.conf script that will build the pipeline between kafka and elasticsearch and once elasticsearch starts consuming the last preprocessed data kibana will take and present it the best way possible using its visualisation capabilities.  
+The last phase was the real time visualisation of our data flow. we chose to work with ELK stack in this phase, ELK stands for Elasticsearch, logstash and kibana. Logstash played the middle man role between the Kafka handled data topic and elasticsearch, the connection between these two components is easy, a pipeline.conf script should be written, the script will build the pipeline between kafka and elasticsearch and once elasticsearch starts consuming the last preprocessed data kibana will take the data and present it the best way possible using its visualisation capabilities.  
 </p> 
+
+ <p>
+The last phase was the real time visualisation of our data flow. we chose to work with ELK stack in this phase, ELK stands for Elasticsearch, logstash and kibana. Logstash played the middle man role between the Kafka handled data topic and elasticsearch, the connection between these two components is easy, a pipeline.conf script should be written, the script will build the pipeline between kafka and elasticsearch and once elasticsearch starts consuming the last preprocessed data kibana will take the data and present it the best way possible using its visualisation capabilities.  
+</p> 
+
+<p>
+In the end, and to establish the connection between all these components, we used docker compose to build a containerized architecture by defining and running multi-container docker applications. With Compose, we used a YAML file to configure our platform’s services. Then, with a single command, we can create and start all the services from the configuration file. 
+  </p>
 
 ## Data source
 
