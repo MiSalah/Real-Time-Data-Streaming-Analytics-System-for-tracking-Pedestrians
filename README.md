@@ -18,7 +18,13 @@
 First of all, we chosed traccar server as data source generator. We installed on our users' phones the traccar client application to establish a connection with traccar server, the data generated from the application will be sent to traccar server and mongoDB will act as a database for traccar server. the connection between these two components was established with the help of a websocket API using a python program for this purpose. 
 </p>
   
+<p>
+After generating the data, two main phases are coming in the picture, batch processing and stream processing. For the batch phase we used S3 as a cloud simple storage datalake service for advanced analytics and ML algorithms purpose using a python program that stores the data generated from traccar Server as excel file every 24 hours and store it in S3, then we connected S3 with the sageMaker service to manipulate this for and build an adequate models.
+</p>  
 
+<p>
+Let's move now the stream processing phase, Kafka was used as a data ingestion tool between mongoDB and spark streaming, so here mongoDB were acting as a producer and spark as consumer that subscribes to our kafka topic. 
+</p>   
 </details>
 
 
