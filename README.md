@@ -42,6 +42,21 @@ The last phase was the real time visualisation of our data flow. we chose to wor
 In the end, and to establish the connection between all these components, we used docker compose to build a containerized architecture by defining and running multi-container docker applications. With Compose, we used a YAML file to configure our platform’s services. Then, with a single command, we can create and start all the services from the configuration file. 
   </p>
 
+### Detail Summary about the architecture
+
+| Container | Image | Tag | Accessible | 
+|-|-|-|-|
+| zookeeper | zookeeper | latest | 172.25.0.10:2181 |
+| kafka1 | wurstmeister/kafka | 2.12-2.2.0 | 172.25.0.11:9092  |
+| kafka_manager | hlebalbau/kafka_manager | stable | 172.25.0.12:9000 |
+| prometheus | prom/prometheus | v2.8.1 | 172.25.0.13:9090 |
+| grafana | grafana/grafana | 6.1.1 | 172.25.0.14:3000 |
+| spark-master | bde2020/spark-worker | 3.2.0-hadoop3.2 | 172.25.0.15:8085 |
+| spark-worker-1| bde2020/spark-worker | 3.2.0-hadoop3.2 | 172.25.0.16:8081 |
+| elasticsearch| docker.elastic.co/elasticsearch/elasticsearch:7.4.1  | 7.4.1 | 172.25.0.17:9200 |
+| kibana| docker.elastic.co/kibana/kibana:7.4.0 | 7.4.0 | 172.25.0.18:5601 |
+
+
 ## Data source
 
 - **The application name :** traccar client
